@@ -1,8 +1,9 @@
-import {FECTH_ALL_PRODUCTS,UPDATE_CART,FECTH_ALL_CART} from "../actionTypes.js"
+import {FECTH_ALL_PRODUCTS,CART_ADD_REMOVE_ACTION,UPDATE_CART_ITEM} from "../actionTypes.js"
 import axios from 'axios'
+const auth_key = process.env.REACT_APP_AUTH
 
 const REACT_APP_fetch_all = process.env.REACT_APP_fetch_all
-
+const REACT_APP_update = process.env.REACT_APP_update
 
 export const fetchAllProducts = () =>{
     return ( dispatch ) =>{
@@ -16,13 +17,33 @@ export const fetchAllProducts = () =>{
 
     }
 }
+
 export const updateCart = (data) =>{
-    return ( dispatch ) =>{
+    return ( dispatch ) => {
         dispatch({
-            type: UPDATE_CART,
+            type: CART_ADD_REMOVE_ACTION,
             payload: data
         })
-        // axios.get(`${REACT_APP_fetch_all}&pageNo=1&itemsPerPage=100`)
+        const {item: { id, cartQuantity} = {}, type} = data;
+        axios.post(REACT_APP_update, { 
+            product_id: id,
+            auth_key,
+            quantity : type === 'ADD' ? cartQuantity + 1 : cartQuantity - 1
+        })
+    }
+}
 
+export const updateCartItem = data => {
+    return ( dispatch ) => {
+        dispatch({
+            type: UPDATE_CART_ITEM,
+            payload: data
+        })
+        const {itemId, quantity} = data;
+        axios.post(REACT_APP_update, { 
+            product_id: itemId,
+            auth_key,
+            quantity
+        })
     }
 }

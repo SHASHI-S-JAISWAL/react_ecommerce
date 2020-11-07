@@ -1,4 +1,4 @@
 export const  FECTH_ALL_PRODUCTS = "FECTH_ALL_PRODUCTS" ; 
 export const  FECTH_ALL_CART = "FECTH_ALL_CART" ; 
-export const  UPDATE_CART = "UPDATE_CART" ; 
-
+export const  CART_ADD_REMOVE_ACTION = "CART_ADD_REMOVE_ACTION"; 
+export const  UPDATE_CART_ITEM = "UPDATE_CART_ITEM"

@@ -11,8 +11,8 @@ import Nav from './components/Nav'
 function App() {
   return (
     <Provider store = {store}>
-      <Nav />
       <Router>
+        <Nav />
         <Switch>
           <Route path="/" exact>
             <Home />

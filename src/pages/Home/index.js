@@ -9,7 +9,6 @@ const auth = process.env.REACT_APP_AUTH
 const Home = (props) =>{ 
     let products =  useSelector (state => state.products  )
     const dispatch = useDispatch()
-    // console.log(products[0])
     useEffect(() => {
         dispatch(fetchAllProducts())
     }, []);
@@ -27,7 +26,8 @@ const Home = (props) =>{
             <div className = "cardwrapper" >
                 {products ?<> {products.map(
                     (product) =>{ return (
-                        <ItemCard 
+                        <ItemCard   
+                            key={product.id}
                             item = {product}
                             onAddProduct={onAddProduct}
                             onRemoveProduct={onRemoveProduct}

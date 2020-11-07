@@ -3,17 +3,17 @@ import {AppBar } from '@material-ui/core'
 import '../styles/Nav.css'
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import { useHistory } from 'react-router-dom';
 
 export default  function Nav (props){
-    
+    const history = useHistory();
     return (
-        // <AppBar position="fixed"></AppBar>
         <div className = "Bar">
             <Typography className="NavText">
-            <Link href="/">
+            <Link onClick={() => history.push('/')} style={{ cursor: 'pointer', color: 'white'}}>
                 Home
             </Link>
-            <Link href="/cart" >
+            <Link onClick={() => history.push('/cart')} style={{ cursor: 'pointer', color: 'white', marginLeft: 20}} >
                 Cart
             </Link>
             </Typography>

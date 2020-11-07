@@ -1,5 +1,5 @@
 .cartcardwrapper{
-    display : flex;
+    display : flex; 
     width: 65%;
     position: relative;
     flex-wrap: wrap;
@@ -17,6 +17,7 @@
     background-color : #f0f0f5;
     position: relative;
     display: flex;
+    padding: 10px;
 }
 .sideBox{
     width: 30%;
@@ -45,4 +46,18 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.cardflat{
+    display: flex;
+    background-color: white;
+    width: 100%;
+    align-items: center;
+}
+
+.cartrate{
+    width: 10%;
+}
+.cartsel{
+    width: 10%;
 }

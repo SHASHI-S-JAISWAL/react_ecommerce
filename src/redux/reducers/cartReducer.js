@@ -1,5 +1,5 @@
 import axios from "axios";
-import {FECTH_ALL_PRODUCTS, UPDATE_CART} from "../actionTypes.js" ;
+import {FECTH_ALL_PRODUCTS, CART_ADD_REMOVE_ACTION, UPDATE_CART_ITEM} from "../actionTypes.js" ;
 
 
 const initialState = {
@@ -8,29 +8,44 @@ const initialState = {
 }
 
 const cartReducer = (state = initialState ,action) => {
-    const {cartItems = [], products= []} = state;
+    const {products= []} = state;
     switch (action.type) {
-        case FECTH_ALL_PRODUCTS : 
+        case FECTH_ALL_PRODUCTS :
+            const newProducts = action.payload;
             return{
                 ...state,
-                products : action.payload
+                products : newProducts,
+                cartItems: newProducts.filter(product => product.cartQuantity > 0)
             }
 
-        case UPDATE_CART:
+        case CART_ADD_REMOVE_ACTION:
             const data = action.payload;
             const {item, type} = data;
-            const {id, cartQuantity} = item
+            const {id, cartQuantity} = item;
+            const modifiedProducts = products.map(product => {
+                if (product.id === id) {
+                    return { ...product, cartQuantity: type === 'ADD' ? cartQuantity + 1 : cartQuantity - 1}
+                }
+                return product;
+            });
             return {
                 ...state,
-                products: products.map(product => {
-                    if (product.id === id) {
-                        return { ...product, cartQuantity: type === 'ADD' ? cartQuantity + 1 : cartQuantity - 1}
-                    }
-                    return product;
-                }),
-                // cartItems: type==='ADD' ?  [...cartItems, item] : cartItems.filter
+                products: modifiedProducts,
+                cartItems: modifiedProducts.filter(product => product.cartQuantity > 0)
             }
-
+        case UPDATE_CART_ITEM:
+            const { itemId, quantity} = action.payload;
+            const modifiedCartProducts = products.map(product => {
+                if (product.id === itemId) {
+                    return { ...product, cartQuantity: quantity}
+                }
+                return product;
+            });
+            return {
+                ...state,
+                products: modifiedCartProducts,
+                cartItems: modifiedCartProducts.filter(product => product.cartQuantity > 0)
+            }
         default : return state ;
     }
 }
