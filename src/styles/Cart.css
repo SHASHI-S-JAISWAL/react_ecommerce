@@ -1,0 +1,48 @@
+.cardwrapper{
+    display : flex;
+    width: 65%;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 30 30 30 30;
+    margin-top: 50px;
+}
+.paperContainer{
+    height: 200px;
+    background-color: white;
+    padding-top: 50px;
+    padding-left: 20px;
+}
+.CartRoot{
+    background-color : #f0f0f5;
+    position: relative;
+    display: flex;
+}
+.sideBox{
+    width: 30%;
+    position: fixed;
+    height: 200px;
+    top: 50px;
+    right: 0;
+}
+.CheckoutBox{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding-top : 30px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.textwide{
+    display: flex;
+    padding-top: 10px;
+    justify-content: space-between;
+    width: 80%;
+}
+.checkoutbtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

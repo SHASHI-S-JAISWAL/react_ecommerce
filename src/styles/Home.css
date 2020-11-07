@@ -1,0 +1,45 @@
+.cardwrapper{
+    display : flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 30 30 30 30;
+    margin-top: 50px;
+    
+}
+
+.productCard{
+    flex : 1 0 23%;
+}
+
+.cardcontent{
+    align-items: flex-start;
+    align-content: left;
+    text-align: left;
+}
+
+.cardroot{
+    width: 200;
+    box-shadow :"none";
+}
+.carmedia{
+    height: 130;
+  }
+
+  .cardtitle{
+    font-size: 0.8em;
+  }
+  .cardbutton{
+    align-self: flex-start;
+    text-align: left;
+    display: flex;
+    color: red;
+    background-color: red;;
+  }
+
+  .quantity{
+    display: flex;
+    font-size: 1.1em;
+    width: 40%;
+    justify-content: space-between;
+  }

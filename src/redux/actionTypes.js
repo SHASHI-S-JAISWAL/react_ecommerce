@@ -1,0 +1,1 @@
+export const  FECTH_ALL_PRODUCTS = "FECTH_ALL_PRODUCTS" ; 

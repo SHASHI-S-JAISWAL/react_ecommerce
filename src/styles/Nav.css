@@ -1,0 +1,12 @@
+.Bar{
+    position: fixed;
+    top :0 ;
+    width: 100%;
+    height :  50px;
+    background-color: #b81125;   
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    z-index: 2;
+}
