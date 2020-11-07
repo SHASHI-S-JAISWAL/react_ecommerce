@@ -1,8 +1,8 @@
 import {applyMiddleware, createStore} from 'redux'
-import fetchproducts from "./reducers/fetchProducts"
+import cartReducer from "./reducers/cartReducer"
 import thunk from 'redux-thunk'
 
 
-const store = createStore(fetchproducts, applyMiddleware(thunk))
+const store = createStore(cartReducer, applyMiddleware(thunk))
 
 export default store

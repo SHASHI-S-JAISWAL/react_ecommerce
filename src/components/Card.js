@@ -25,9 +25,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ItemCard ({item}) {
+export default function ItemCard (props) {
+  const { onAddProduct, onRemoveProduct, item} = props;
   const classes = useStyles();
-    console.log(item)
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -50,13 +50,13 @@ export default function ItemCard ({item}) {
         
       </CardActionArea>
       {item.cartQuantity==0 ? 
-          <Button size="small" className ="cardbutton" style={{display: "flex",justifyContent:"flex-start",fill: "red",color: "red"}}>
+          <Button onClick={() => onAddProduct(item)} size="small" className ="cardbutton" style={{display: "flex",justifyContent:"flex-start",fill: "red",color: "red"}}>
               <AddCircleIcon style={{fill: "red"}}/><Typography component="p">  ADD</Typography>
           </Button>
           :<Typography className="quantity">
-            <AddIcon />
+            <AddIcon onClick={() => onAddProduct(item)} />
             <Typography variant="body2" color="textSecondary" component="p" style ={{fontSize: "1.1em"}}>{item.cartQuantity}</Typography>
-            <RemoveIcon />
+            <RemoveIcon onClick={() => onRemoveProduct(item)} />
           </Typography>}
       <CardActions>
       </CardActions>

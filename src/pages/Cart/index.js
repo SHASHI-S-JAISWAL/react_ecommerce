@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react' 
 import store from '../../redux/store'
 import {useDispatch,useSelector} from  'react-redux'
-import {fetchAllProducts} from '../../redux/actions'
+import {fetchAllProducts} from '../../redux/actions/cartActions'
 import CartItem from '../../components/CartItem'
 import CheckoutBox from '../../components/CheckoutBox'
 import '../../styles/Cart.css'
@@ -20,7 +20,7 @@ const Home = (props) =>{
 
     return (
         <div className ="CartRoot">
-            <div className = "cardwrapper" >
+            <div className = "cartcardwrapper" >
                 {products ?<> {products.map(
                     (product) =>{ return (
                         <CartItem  item = {product}
