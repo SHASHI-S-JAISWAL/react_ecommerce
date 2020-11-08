@@ -53,11 +53,63 @@
     background-color: white;
     width: 100%;
     align-items: center;
+    border-bottom: 2px solid #f4f4f4;
 }
 
 .cartrate{
     width: 10%;
 }
 .cartsel{
-    width: 10%;
+    width: 15%;
+}
+
+
+
+.cartname{
+    display : flex ; 
+    width : 100%;
+    background-color: #f4f4f4;
+}
+.cartitemname{
+    flex : 1;
+}
+
+.shoppingcartname{
+    display : flex ; 
+    width : 100%;
+    height: 46px;
+    background-color : white;
+    align-items: center;
+    align-content: center;
+}
+.cartbuton{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.contshop{
+    display : flex ; 
+    width : 100%;
+    height: 46px;
+    background-color : white;
+    align-items: center;
+    align-content: center;
+}
+
+
+@media screen and (max-width : 600px ){
+    .CartRoot{ 
+        flex-wrap : wrap;
+    }
+    .cartcardwrapper{
+        width : 100%;
+    }
+    .sideBox{
+        position: static;
+        width : 100%;
+    }
+    .cartname{
+        display: hide;
+        width: 94%;
+    }
 }

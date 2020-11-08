@@ -1,4 +1,4 @@
-import Paper from '@material-ui/core/Paper'
+
 import '../styles/Cart.css';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -11,9 +11,13 @@ export default function CheckOutBox(props) {
     const total = cartItems.reduce((sum,i)=>{
          const itemPrice = i.price * i.cartQuantity
          return sum + itemPrice;
-    }, 0)
-
-
+    }, 0);
+    // const {cleartbox} = props
+    // const handleCheckout = ()=>{
+    //     alert("items Ordered")
+    //     // cleartbox()
+    // }
+    
     return (
         <div className="paperContainer">
             <div className="CheckOutBox">
@@ -31,7 +35,9 @@ export default function CheckOutBox(props) {
                     <Typography>{total}</Typography>
                 </div>  
                 <div className = "checkoutbtn">
-                    <Button variant="contained" color="secondary" >
+                    <Button variant="contained" color="secondary" 
+                    // onClick ={handleCheckout}
+                    >
                     Checkout
                     </Button>
                 </div>

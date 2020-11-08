@@ -1,10 +1,12 @@
 import axios from "axios";
-import {FECTH_ALL_PRODUCTS, CART_ADD_REMOVE_ACTION, UPDATE_CART_ITEM} from "../actionTypes.js" ;
+import {FECTH_ALL_PRODUCTS, CART_ADD_REMOVE_ACTION, UPDATE_CART_ITEM, CURRENT_RENDERING, SET_Y_OFFSET} from "../actionTypes.js" ;
 
 
 const initialState = {
     products : [],
-    cartItems: []
+    cartItems: [],
+    currentPage:'home',
+    yOffset : 0
 }
 
 const cartReducer = (state = initialState ,action) => {
@@ -17,7 +19,16 @@ const cartReducer = (state = initialState ,action) => {
                 products : newProducts,
                 cartItems: newProducts.filter(product => product.cartQuantity > 0)
             }
-
+        case CURRENT_RENDERING:
+            return{
+                ...state,
+                currentPage:action.payload
+            }
+        case SET_Y_OFFSET:
+            return{
+                ...state,
+                yOffset:action.payload
+            }
         case CART_ADD_REMOVE_ACTION:
             const data = action.payload;
             const {item, type} = data;

@@ -1,4 +1,4 @@
-import {FECTH_ALL_PRODUCTS,CART_ADD_REMOVE_ACTION,UPDATE_CART_ITEM} from "../actionTypes.js"
+import {FECTH_ALL_PRODUCTS, CART_ADD_REMOVE_ACTION, UPDATE_CART_ITEM, CURRENT_RENDERING, SET_Y_OFFSET} from "../actionTypes.js"
 import axios from 'axios'
 const auth_key = process.env.REACT_APP_AUTH
 
@@ -45,5 +45,18 @@ export const updateCartItem = data => {
             auth_key,
             quantity
         })
+    }
+}
+
+export const setCurrentPage = data=>{
+    return {
+        type :CURRENT_RENDERING ,
+        payload :data 
+    }
+}
+export const setYoffSet = data=>{
+    return {
+        type :SET_Y_OFFSET ,
+        payload :data 
     }
 }
