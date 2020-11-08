@@ -12,11 +12,11 @@ export default function CheckOutBox(props) {
          const itemPrice = i.price * i.cartQuantity
          return sum + itemPrice;
     }, 0);
-    // const {cleartbox} = props
-    // const handleCheckout = ()=>{
-    //     alert("items Ordered")
-    //     // cleartbox()
-    // }
+    const {cleartbox} = props
+    const handleCheckout = ()=>{
+        alert("items Ordered")
+        cleartbox()
+    }
     
     return (
         <div className="paperContainer">
@@ -36,7 +36,7 @@ export default function CheckOutBox(props) {
                 </div>  
                 <div className = "checkoutbtn">
                     <Button variant="contained" color="secondary" 
-                    // onClick ={handleCheckout}
+                    onClick ={handleCheckout}
                     >
                     Checkout
                     </Button>

@@ -19,6 +19,7 @@ const Home = (props) =>{
             const yaxis = window.pageYOffset 
             dispatch(setYoffSet(yaxis))
             console.log('home unmount' +  yaxis)
+            console.log('home unmount yyyyy' +  window.scrollY)
         }
     }, []);
 
